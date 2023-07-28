@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const UserCard = () => {
   return (
-    <div className="bg-white w-72 p-6 rounded-lg shadow-2xl shadow-gray-300/80">
+    <div className="bg-white w-72 p-6 rounded-lg shadow-2xl shadow-gray-300/80 mt-[70px] mr-[32px] absolute top-0 right-0">
       <div className="flex items-center mb-4">
         <img
           className="w-12 h-12 rounded-full mr-4"
