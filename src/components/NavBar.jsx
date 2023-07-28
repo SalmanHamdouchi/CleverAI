@@ -1,16 +1,21 @@
 import React from "react";
 import { useState } from "react";
 import UserCard from "./UserCard";
+import UserPhoto from "./UserPhoto";
 const NavBar = () => {
   let [isOpen, setIsOpen] = useState(false);
+  let [isUserCardVisible, setIsUserCardVisible] = useState(false);
 
   const handleBurgerClick = () => {
     setIsOpen(!isOpen);
   };
+  const handleUserPhotoClick = () => {
+    setIsUserCardVisible(!isUserCardVisible);
+  };
   return (
-    <div className="flex items-center p-4">
+    <div className="flex items-center p-4 justify-between w-[100%]">
       <div
-        className="inline-flex flex-col justify-center items-center cursor-pointer p-1 "
+        className="sm:inline-flex md:hidden flex-col justify-center items-center cursor-pointer p-1 "
         onClick={handleBurgerClick}>
         <div
           className={`h-[2px] w-[20px] transition-all	delay-200 bg-black origin-top-left mb-[5px] ${
@@ -26,7 +31,8 @@ const NavBar = () => {
           }`}></div>
       </div>
       <div className="flex w-full justify-end">
-        <UserCard />
+        <UserPhoto handleUserPhotoClick={handleUserPhotoClick} />
+        {isUserCardVisible && <UserCard />}
       </div>
     </div>
   );
