@@ -1,18 +1,26 @@
 import "./App.css";
-import SideBar from "./components/SideBar";
-import NavBar from "./components/NavBar";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { far } from "@fortawesome/free-regular-svg-icons";
 
+import Layout from "./components/Layout";
+import Dashboard from "./components/Dashboard";
+import Conversation from "./components/Conversation";
+import VideoGeneration from "./components/VideoGeneration";
+import ImageGeneration from "./components/ImageGeneration";
+
 function App() {
   return (
-    <div className="App">
-      <SideBar></SideBar>
-      <div className="main-content">
-        <NavBar></NavBar>
-      </div>
-    </div>
+    <Layout>
+      <Routes>
+        <Route path="/" element={Dashboard} />
+        <Route path="/conversation" element={Conversation} />
+        <Route path="/video-generation" element={VideoGeneration} />
+        <Route path="/image-generation" element={ImageGeneration} />
+      </Routes>
+    </Layout>
   );
 }
 
