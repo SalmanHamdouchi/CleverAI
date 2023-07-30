@@ -2,12 +2,14 @@ import React from "react";
 import { useState } from "react";
 import UserCard from "./UserCard";
 import UserPhoto from "./UserPhoto";
-const NavBar = () => {
+
+const NavBar = ({ isSideBarOpen, setIsSideBarOpen }) => {
   let [isOpen, setIsOpen] = useState(false);
   let [isUserCardVisible, setIsUserCardVisible] = useState(false);
 
   const handleBurgerClick = () => {
     setIsOpen(!isOpen);
+    setIsSideBarOpen(!isSideBarOpen);
   };
   const handleUserPhotoClick = () => {
     setIsUserCardVisible(!isUserCardVisible);
@@ -39,3 +41,4 @@ const NavBar = () => {
 };
 
 export default NavBar;
+//export isOpen
