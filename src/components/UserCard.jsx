@@ -1,6 +1,5 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import { Settings, LogOut } from "lucide-react";
 const UserCard = () => {
   return (
     <div className="bg-white w-72 p-6 rounded-lg shadow-2xl shadow-gray-300/80 mt-[70px] mr-[32px] absolute top-0 right-0">
@@ -17,15 +16,11 @@ const UserCard = () => {
       </div>
       <div className="flex flex-col">
         <button className="flex items-center text-sm text-gray-600 rounded-lg py-2 px-4  hover:bg-gray-100  transition-all duration-300">
-          <FontAwesomeIcon className="mr-2" icon="fa-solid fa-gear" size="lg" />
+          <Settings className="mr-2" size="25" />
           Manage Profile
         </button>
         <button className="flex items-center text-sm text-gray-600 rounded-lg py-2 px-4  hover:bg-gray-100  transition-all duration-300">
-          <FontAwesomeIcon
-            className="mr-2"
-            icon="fa-solid fa-right-from-bracket"
-            size="lg"
-          />
+          <LogOut className="mr-2" size="25" />
           Sign Out
         </button>
       </div>
