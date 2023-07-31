@@ -61,10 +61,10 @@ const Dashboard = () => {
 
       <div className="px-4 md:px-20 lg:px-32 space-y-4">
         {tools.map((item, index) => (
-          <div
-            key={index}
-            className="p-4 rounded-lg border-2 border-black/5 flex items-center justify-between hover:shadow-[0px_2px_3px_0px_#71717112] transition cursor-pointer">
-            <Link to={item.href}>
+          <Link to={item.href}>
+            <div
+              key={index}
+              className="p-4 rounded-lg border-2 border-black/5 flex items-center justify-between mb-4 hover:shadow-[0px_2px_3px_0px_#71717112] transition cursor-pointer">
               <div className={`flex items-center p-2 rounded-lg`}>
                 <div
                   className={`h-10 w-10 flex items-center justify-center rounded-md ${item.bgColor} ${item.color}`}>
@@ -72,9 +72,9 @@ const Dashboard = () => {
                 </div>
                 <div className={`ml-4 font-semibold `}>{item.label}</div>
               </div>
-            </Link>
-            <ArrowRight className="w-5 h-5" />
-          </div>
+              <ArrowRight className="w-5 h-5" />
+            </div>
+          </Link>
         ))}
       </div>
     </div>
