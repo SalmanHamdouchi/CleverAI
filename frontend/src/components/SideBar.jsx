@@ -1,14 +1,37 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  selectIsSideBarOpen,
+  setIsSideBarOpen,
+} from "../features/ui/sidebar-slice";
 import {
   ImageIcon,
   LayoutDashboard,
   MessageSquare,
   VideoIcon,
 } from "lucide-react";
-const SideBar = ({ isSideBarOpen, setIsSideBarOpen }) => {
+
+const SideBar = () => {
+  const isSideBarOpen = useSelector(selectIsSideBarOpen);
+  const dispatch = useDispatch();
   const location = useLocation();
   const pathname = location.pathname;
+
+  const handleWindowResize = () => {
+    if (window.innerWidth > 768 && isSideBarOpen) {
+      dispatch(setIsSideBarOpen(false));
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", handleWindowResize);
+
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
+  }, [isSideBarOpen]);
+
   const links = [
     {
       to: "/dashboard",
@@ -40,7 +63,7 @@ const SideBar = ({ isSideBarOpen, setIsSideBarOpen }) => {
       {isSideBarOpen && (
         <div
           className="fixed inset-0 bg-black opacity-20 z-50"
-          onClick={() => setIsSideBarOpen(false)}
+          onClick={() => dispatch(setIsSideBarOpen(!isSideBarOpen))}
         />
       )}
       <div
