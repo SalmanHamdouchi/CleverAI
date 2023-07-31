@@ -1,15 +1,22 @@
 import React from "react";
 import { useState } from "react";
+
+import {
+  selectIsSideBarOpen,
+  setIsSideBarOpen,
+} from "../features/ui/sidebar-slice";
+import { useSelector, useDispatch } from "react-redux";
+
 import UserCard from "./UserCard";
 import UserPhoto from "./UserPhoto";
 
-const NavBar = ({ isSideBarOpen, setIsSideBarOpen }) => {
-  let [isOpen, setIsOpen] = useState(false);
+const NavBar = () => {
   let [isUserCardVisible, setIsUserCardVisible] = useState(false);
+  const isSideBarOpen = useSelector(selectIsSideBarOpen);
+  const dispatch = useDispatch();
 
   const handleBurgerClick = () => {
-    setIsOpen(!isOpen);
-    setIsSideBarOpen(!isSideBarOpen);
+    dispatch(setIsSideBarOpen(!isSideBarOpen));
   };
   const handleUserPhotoClick = () => {
     setIsUserCardVisible(!isUserCardVisible);
@@ -21,15 +28,15 @@ const NavBar = ({ isSideBarOpen, setIsSideBarOpen }) => {
         onClick={handleBurgerClick}>
         <div
           className={`h-[2px] w-[20px] transition-all	delay-200 bg-black origin-top-left mb-[5px] ${
-            isOpen ? "rotate-45" : "none"
+            isSideBarOpen ? "rotate-45" : "none"
           }`}></div>
         <div
           className={`h-[2px] w-[20px] transition-all	delay-200 bg-black ${
-            isOpen && "translateX(-16px) opacity-0 "
+            isSideBarOpen && "translateX(-16px) opacity-0 "
           }`}></div>
         <div
           className={`h-[2px] w-[20px] transition-all	delay-200 bg-black  origin-top-left mt-[5px] ${
-            isOpen && "-translate-x-[1px] -rotate-45"
+            isSideBarOpen && "-translate-x-[1px] -rotate-45"
           }`}></div>
       </div>
       <div className="flex w-full justify-end">
@@ -41,4 +48,3 @@ const NavBar = ({ isSideBarOpen, setIsSideBarOpen }) => {
 };
 
 export default NavBar;
-//export isOpen
