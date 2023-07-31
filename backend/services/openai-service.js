@@ -16,12 +16,9 @@ class OpenaiService {
         messages: [{ role: "user", content: prompt }],
         max_tokens: 30,
       });
-      const generatedText = response.data.choices[0].message.content;
-
-      return generatedText;
+      return response.data.choices[0].message.content;
     } catch (error) {
-      console.error("Error generating text:", error);
-      throw new Error("Failed to generate text. " + error);
+      throw new Error(error.message);
     }
   }
 }
