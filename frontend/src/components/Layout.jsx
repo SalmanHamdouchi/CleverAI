@@ -1,18 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import SideBar from "./SideBar";
 import NavBar from "./NavBar";
 
 const Layout = ({ children }) => {
-  let [isSideBarOpen, setIsSideBarOpen] = useState(false);
   return (
     <div className="flex">
-      <SideBar
-        isSideBarOpen={isSideBarOpen}
-        setIsSideBarOpen={setIsSideBarOpen}></SideBar>
+      <SideBar></SideBar>
       <div className="flex flex-col grow shrink-0 basis-auto md:ml-96">
-        <NavBar
-          isSideBarOpen={isSideBarOpen}
-          setIsSideBarOpen={setIsSideBarOpen}></NavBar>
+        <NavBar></NavBar>
         {children}
       </div>
     </div>
