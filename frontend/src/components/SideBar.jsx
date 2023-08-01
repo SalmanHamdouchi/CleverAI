@@ -6,6 +6,7 @@ import {
   setIsSideBarOpen,
 } from "../features/ui/sidebar-slice";
 import {
+  Code,
   ImageIcon,
   LayoutDashboard,
   MessageSquare,
@@ -44,6 +45,12 @@ const SideBar = () => {
       icon: MessageSquare,
       color: "#f43f5e",
       label: "Conversation",
+    },
+    {
+      to: "/code-generation",
+      icon: Code,
+      color: "#e8cc0d",
+      label: "Code generation",
     },
     {
       to: "/image-generation",
