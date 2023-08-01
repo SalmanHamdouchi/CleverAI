@@ -17,4 +17,37 @@ export default class BackendService {
         });
     });
   };
+
+  generateCode = (prompt) => {
+    let instruction =
+      "You are a code generator. You must answer only in markdown code snippets. Use code comments for explanation";
+    return new Promise((resolve, reject) => {
+      axios
+        .post(`${this.BASE_URL}/generate-code`, { prompt, instruction })
+        .then((response) => {
+          console.log(response.data.generatedText);
+          resolve(response.data.generatedText);
+        })
+        .catch((error) => {
+          console.log(error);
+
+          reject(new Error("BackendService: Failed to generate code.", error));
+        });
+    });
+  };
+
+  generateImage = (prompt) => {
+    return new Promise((resolve, reject) => {
+      axios
+        .post(`${this.BASE_URL}/generate-image`, { prompt })
+        .then((response) => {
+          console.log(response.data.generatedImage);
+          resolve(response.data.generatedImage);
+        })
+        .catch((error) => {
+          console.log(error);
+          reject(new Error("BackendService: Failed to generate image.", error));
+        });
+    });
+  };
 }
