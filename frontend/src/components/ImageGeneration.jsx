@@ -10,6 +10,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { Image, Download } from "lucide-react";
 import Empty from "./Empty";
 import Loader from "./Loader";
+import { saveAs } from "file-saver";
 
 const ImageGeneration = () => {
   let dispatch = useDispatch();
@@ -18,6 +19,10 @@ const ImageGeneration = () => {
   const [formData, setFormData] = useState({
     prompt: "",
   });
+
+  const handleDownloadClick = (imageURL) => {
+    saveAs(imageURL, `${formData.prompt.replace("", "-")}-image.jpg`);
+  };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -94,8 +99,9 @@ const ImageGeneration = () => {
             <div className="overflow-hidden">
               <img className="object-fill" src={image.url} alt="img" />
             </div>
-            <div className="cursor-pointer mt-2 mb-2 py-2 flex justify-center items-center bg-[#EFF3F8] mx-2 rounded-lg">
-              <Download className="h-5 w-5 mr-2"></Download>
+            <div
+              onClick={() => handleDownloadClick(image.url)}
+              className="cursor-pointer mt-2 mb-2 py-2 flex justify-center items-center bg-[#EFF3F8] mx-2 rounded-lg">
               <button className="text-[1.25rem] font-semibold">Download</button>
             </div>
           </div>
