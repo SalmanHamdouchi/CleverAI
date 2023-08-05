@@ -71,7 +71,7 @@ const CodeGeneration = () => {
           value={formData.prompt}
           onChange={handleInputChange}
           placeholder="React component with dynamic tailwind classes..."
-          className="resize-none w-full xl:grow-1 min-h-5 border-0 outline-none focus-visible:ring focus-visible:ring-transparent xl:pr-8 sm:pb-8 xl:pb-0 sm:pr-0 overflow-hidden overflow-y-auto"></textarea>
+          className="resize-none w-full xl:grow-1 min-h-5 border-0 outline-none focus-visible:ring focus-visible:ring-transparent xl:pr-8 xl:pb-0 sm:pr-0 overflow-hidden overflow-y-auto"></textarea>
         <button
           className="w-full xl:w-28 rounded-md py-2 bg-[#121725] text-white font-semibold"
           type="submit">
