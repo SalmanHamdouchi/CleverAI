@@ -3,10 +3,10 @@ import { Configuration, OpenAIApi } from "openai";
 
 class OpenaiService {
   constructor() {
-    const configuration = new Configuration({
+    const openAIConfiguration = new Configuration({
       apiKey: config.openai.apiKey,
     });
-    this.openai = new OpenAIApi(configuration);
+    this.openai = new OpenAIApi(openAIConfiguration);
   }
 
   async generateText(instruction, prompt) {
@@ -21,7 +21,7 @@ class OpenaiService {
       const response = await this.openai.createChatCompletion({
         model: "gpt-3.5-turbo",
         messages: messages,
-        max_tokens: 40,
+        max_tokens: 100,
       });
       return response.data.choices[0].message.content;
     } catch (error) {
@@ -37,7 +37,6 @@ class OpenaiService {
         n: 1,
         size: "256x256",
       });
-      console.log(response.data);
       return response.data.data[0].url;
     } catch (error) {
       throw new Error(error.message);
