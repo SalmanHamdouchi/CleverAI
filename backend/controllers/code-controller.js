@@ -1,12 +1,13 @@
-import OpenAIService from "../services/openai-service.js";
+import OpenaiService from "../services/openai-service.js";
 
 class CodeController {
-  async generateCode(req, res) {
+  constructor() {
+    this.openaiService = new OpenaiService();
+  }
+  generateCode = async (req, res) => {
     try {
-      const openaiService = new OpenAIService();
-
       const { prompt, instruction } = req.body;
-      const generatedText = await openaiService.generateText(
+      const generatedText = await this.openaiService.generateText(
         instruction,
         prompt
       );
@@ -15,7 +16,7 @@ class CodeController {
     } catch (err) {
       res.status(500).json({ error: err.message });
     }
-  }
+  };
 }
 
 export default CodeController;
