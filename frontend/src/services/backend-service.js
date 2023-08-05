@@ -13,6 +13,7 @@ export default class BackendService {
           resolve(response.data.generatedText);
         })
         .catch((error) => {
+          console.log(error);
           reject(new Error("BackendService: Failed to generate text.", error));
         });
     });
@@ -39,14 +40,29 @@ export default class BackendService {
   generateImage = (prompt) => {
     return new Promise((resolve, reject) => {
       axios
-        .post(`${this.BASE_URL}/generate-image`, { prompt })
+        .post(`${this.BASE_URL}/generate-image-replicate`, { prompt })
         .then((response) => {
-          console.log(response.data.generatedImage);
+          console.log(response);
           resolve(response.data.generatedImage);
         })
         .catch((error) => {
           console.log(error);
           reject(new Error("BackendService: Failed to generate image.", error));
+        });
+    });
+  };
+
+  generateVideo = (prompt) => {
+    return new Promise((resolve, reject) => {
+      axios
+        .post(`${this.BASE_URL}/generate-video`, { prompt })
+        .then((response) => {
+          console.log(response);
+          resolve(response.data.generatedVideo);
+        })
+        .catch((error) => {
+          console.log(error);
+          reject(new Error("BackendService: Failed to generate video.", error));
         });
     });
   };
