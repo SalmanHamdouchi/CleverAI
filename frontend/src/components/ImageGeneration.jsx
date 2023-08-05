@@ -75,7 +75,7 @@ const ImageGeneration = () => {
           value={formData.prompt}
           onChange={handleInputChange}
           placeholder="A shiba inu dog on the moon's surface..."
-          className="resize-none w-full xl:grow-1 min-h-5 border-0 outline-none focus-visible:ring focus-visible:ring-transparent xl:pr-8 sm:pb-8 xl:pb-0 sm:pr-0 overflow-hidden overflow-y-auto"></textarea>
+          className="resize-none w-full xl:grow-1 min-h-5 border-0 outline-none focus-visible:ring focus-visible:ring-transparent xl:pr-8 xl:pb-0 sm:pr-0 overflow-hidden overflow-y-auto"></textarea>
         <button
           className="w-full xl:w-28 rounded-md py-2 bg-[#121725] text-white font-semibold"
           type="submit">
@@ -101,8 +101,9 @@ const ImageGeneration = () => {
             </div>
             <div
               onClick={() => handleDownloadClick(image.url)}
-              className="cursor-pointer mt-2 mb-2 py-2 flex justify-center items-center bg-[#EFF3F8] mx-2 rounded-lg">
-              <button className="text-[1.25rem] font-semibold">Download</button>
+              className="cursor-pointer mt-2 mb-2 py-2 flex justify-center items-center bg-[#EFF3F8] mx-2 rounded-lg w-full">
+              <Download className="mr-2" />
+              <p className="text-[1.25rem] font-semibold">Download</p>
             </div>
           </div>
         ))}
