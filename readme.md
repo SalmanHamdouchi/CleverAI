@@ -29,7 +29,6 @@ Clever AI Platform is designed to simplify and streamline AI content generation 
 - **Efficient State Management**: Redux Toolkit ensures seamless state management, allowing for a smooth and responsive user experience.
 - **Backend Power**: Built with Node.js and Express.js, our backend sets up a robust API to connect with AI services.
 - **Smart AI Routing**: Clever intelligently routes prompts to OpenAI or Replicate AI based on context, providing optimal results.
-- **Authentication and Billing**: Track your usage and enjoy unlimited content generation by creating an account and setting up a billing method.
 
 ## Technologies
 
@@ -55,27 +54,27 @@ To run Clever AI Platform locally, follow these steps:
 ### Main Page - AI Content Navigation
 
 The main page features a sidebar for seamless navigation between AI content generation modes: conversation, code, image, and video.
-![Main Page Screenshot](https://drive.google.com/file/d/1dWJ1g9giWYxBni9kRvOtixou7hLD_KdT/view?usp=drive_link)
+![Main Page Screenshot](https://drive.google.com/uc?id=1dWJ1g9giWYxBni9kRvOtixou7hLD_KdT&export=download)
 
 ### Text Generation
 
-Experience AI-powered text generation with a user-friendly editor that produces coherent paragraphs in real-time.
-![Text Generation Screenshot](https://drive.google.com/file/d/12H9hJfvL4D_3KFYKoAHdy-FIyUg5cZdz/view?usp=drive_link)
+Experience AI-powered text generation with a user-friendly editor that produces paragraphs in real-time.
+![Text Generation Screenshot](https://drive.google.com/uc?id=12H9hJfvL4D_3KFYKoAHdy-FIyUg5cZdz&export=download)
 
 ### Code Generation
 
-Effortlessly generate complex code snippets by providing high-level instructions using the AI-powered coding interface.
-![Code Generation Screenshot](https://drive.google.com/file/d/1xmeoOkQbpsaqq3VTWHWdW-uQFYR7hN2G/view?usp=drive_link)
+Generate complex code snippets by providing high-level instructions.
+![Code Generation Screenshot](https://drive.google.com/uc?id=1xmeoOkQbpsaqq3VTWHWdW-uQFYR7hN2G&export=download)
 
 ### Image Generation
 
-Unleash creativity with AI-generated images by specifying visual parameters and concepts.
-![Image Generation Screenshot](https://drive.google.com/file/d/173WWlb3F2oqitySK1DutI2wSFTQ--YQo/view?usp=drive_link)
+Unleash creativity with AI-generated images through a simple prompt.
+![Image Generation Screenshot](https://drive.google.com/uc?id=173WWlb3F2oqitySK1DutI2wSFTQ--YQo&export=download)
 
 ### Video Generation
 
-Craft engaging videos by inputting descriptions or themes, and let AI weave together visuals and sound for dynamic storytelling.
-![Video Generation Screenshot](https://drive.google.com/file/d/1zD54iDdfd4HI2ucU1HJ2htpcP0Q36I8_/view?usp=drive_link)
+Craft engaging videos by inputting descriptions or themes, and let AI weave visuals for dynamic storytelling.
+![Video Generation Screenshot](https://drive.google.com/uc?id=1zD54iDdfd4HI2ucU1HJ2htpcP0Q36I8_&export=download)
 
 ## New Features
 
