@@ -68,7 +68,7 @@ const Conversation = () => {
           name="prompt"
           value={formData.prompt}
           onChange={handleInputChange}
-          placeholder="Explain DevOps to me like I'm 5 years old"
+          placeholder="Explain Machine Learning to me like I'm 5 years old"
           className="resize-none w-full xl:grow-1 min-h-5 border-0 outline-none focus-visible:ring focus-visible:ring-transparent xl:pr-8 xl:pb-0 sm:pr-0 overflow-hidden overflow-y-auto"></textarea>
         <button
           className="w-full xl:w-28 rounded-md py-2 bg-[#121725] text-white font-semibold"
