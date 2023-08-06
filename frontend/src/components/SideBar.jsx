@@ -79,9 +79,9 @@ const SideBar = () => {
         } h-[100vh] md:flex md:w-96 md:flex-col fixed md:inset-y-0 z-[100] bg-gray-900 md:translate-x-0`}>
         <div className="space-y-4 py4 flex flex-col h-full bg-[#111827] text-white z-[200]">
           <div className="px-3 py-2 flex-1">
-            <div className="flex items-center justify-center mt-4 mb-8">
+            <div className="flex items-center justify-center mt-6 mb-16">
               <img className="w-[60px] mr-1" src="/logo.png" alt="logo"></img>
-              <h1 className="text-4xl font-semibold ">Clever</h1>
+              <h1 className="text-4xl font-semibold ">CleverAI</h1>
             </div>
 
             <div className="pl-4 pr-4">
