@@ -45,8 +45,8 @@ To run Clever AI Platform locally, follow these steps:
 2. Navigate to the project directory: `cd clever-ai-platform`
 3. Install dependencies : `npm install`
 4. Add a `.env` file to ./backend and include your OpenAI and ReplicateAI tokens
-5. Start the backend's Node.js server: `npm start:backend`
-6. Start the frontend's React.js server: `npm start:frontend`
+5. Start the backend's server: `npm start:backend`
+6. Start the frontend's React app: `npm start:frontend`
 
 ## Demo
 
