@@ -1,6 +1,6 @@
 # Clever AI Platform
 
-Welcome to Clever AI Platform, your one-stop solution for generating a wide variety of AI-powered content in a centralized environment. Whether you're looking to generate code snippets, engage in meaningful conversations, create stunning images, or produce captivating videos, Clever has got you covered. With a sleek React.js frontend, efficient Node.js backend, and seamless integration with OpenAI and Replicate AI services, Clever is poised to revolutionize your AI content generation experience.
+CleverAI is designed to streamline AI content generation by providing a centralized platform for users to create a wide range of content simply by entering a prompt. This encompasses engaging conversations, high-quality code, captivating images, and stunning videos – all presented through ergonomically designed user interfaces crafted to capture the user's attention and immerse them in the platform.
 
 ## Table of Contents
 
@@ -20,14 +20,13 @@ Welcome to Clever AI Platform, your one-stop solution for generating a wide vari
 
 ## Introduction
 
-Clever AI Platform is designed to simplify and streamline AI content generation by offering a unified hub for various types of AI-generated content. Our platform leverages the power of OpenAI and Replicate AI to deliver high-quality code, engaging conversations, captivating images, and stunning videos, all accessible from a single location.
+Clever AI Platform is designed to simplify and streamline AI content generation by offering a unified hub for various types of AI-generated content. The platform leverages the power of OpenAI and Replicate AI to deliver high-quality code, engaging conversations, captivating images, and stunning videos, all accessible from a single location.
 
 ## Features
 
 - **Content Diversity**: Generate code, have meaningful conversations, create images, and produce videos, all within one platform.
 - **Sleek UI**: Utilizing the power of React.js and Tailwind CSS, Clever provides an intuitive and visually appealing user interface.
 - **Efficient State Management**: Redux Toolkit ensures seamless state management, allowing for a smooth and responsive user experience.
-- **Backend Power**: Built with Node.js and Express.js, our backend sets up a robust API to connect with AI services.
 - **Smart AI Routing**: Clever intelligently routes prompts to OpenAI or Replicate AI based on context, providing optimal results.
 
 ## Technologies
@@ -68,14 +67,14 @@ Generate complex code snippets by providing high-level instructions.
 
 ### Image Generation
 
-Unleash creativity with AI-generated images through a simple prompt.
+Create stunningly looking images with a simple prompt.
 ![Image Generation Screenshot](https://drive.google.com/uc?id=173WWlb3F2oqitySK1DutI2wSFTQ--YQo&export=download)
 
 ### Video Generation
 
-Craft engaging videos by inputting descriptions or themes, and let AI weave visuals for dynamic storytelling.
+And well, same thing for the video.
 ![Video Generation Screenshot](https://drive.google.com/uc?id=1zD54iDdfd4HI2ucU1HJ2htpcP0Q36I8_&export=download)
 
 ## New Features
 
-We're actively working on implementing an authentication system that will allow users to create accounts and track their usage. Additionally, we're integrating a billing method for users to enjoy unlimited AI-generated content generation. Stay tuned for updates!
+I'm actively working on implementing an authentication system that will allow users to create accounts and track their usage. Additionally, I'm integrating a billing method for users to enjoy unlimited AI-generated content generation. Stay tuned for updates!
