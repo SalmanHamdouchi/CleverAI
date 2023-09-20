@@ -1,10 +1,13 @@
 import dotenv from "dotenv";
+import Config from "./types/configTypes.js";
+import { CorsOptions } from "cors";
+
 dotenv.config();
 
-const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
-const REPLICATE_API_TOKEN = process.env.REPLICATE_API_TOKEN;
+const OPENAI_API_KEY: string | undefined = process.env.OPENAI_API_KEY;
+const REPLICATE_API_TOKEN: string | undefined = process.env.REPLICATE_API_TOKEN;
 
-const config = {
+const config: Config = {
   openai: {
     apiKey: OPENAI_API_KEY,
   },
@@ -14,13 +17,12 @@ const config = {
   allowedOrigins: ["http://localhost:3000"],
 };
 
-const corsOptions = {
+const corsOptions: CorsOptions = {
   origin: (origin, callback) => {
-    // Check if the request origin is in the allowedOrigins array or if it is undefined (e.g., for non-browser requests)
     if (!origin || config.allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
-      callback(new Error("Not allowed by CORS"));
+      callback(new Error("Not allowed by CORS"), false);
     }
   },
 };
