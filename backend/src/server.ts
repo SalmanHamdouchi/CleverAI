@@ -1,15 +1,15 @@
-import express from "express";
+import express, { Request, Response } from "express";
 import cors from "cors";
 import apiRoutes from "./routes/api-routes.js";
-import corseOptions from "./config.js";
+import { corsOptions } from "./config.js";
 
 const app = express();
 
 app.use(express.json());
-app.use(cors(corseOptions));
+app.use(cors(corsOptions));
 app.use("/api", apiRoutes);
 
-app.use((err, req, res, next) => {
+app.use((err: Error, req: Request, res: Response) => {
   console.error(err);
   res.status(500).json({ error: err });
 });
