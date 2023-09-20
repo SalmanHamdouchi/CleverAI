@@ -20,7 +20,7 @@ class OpenaiService {
   };
 
   async generateText(
-    instruction: string,
+    instruction: string | null,
     prompt: string
   ): Promise<string | Error> {
     let conversation: ChatCompletionRequestMessage[] =
