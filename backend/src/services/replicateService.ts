@@ -2,13 +2,23 @@ import config from "../config.js";
 import Replicate from "replicate";
 
 class ReplicateService {
+  private replicate!: Replicate;
+
   constructor() {
-    this.replicate = new Replicate({
-      auth: config.replicate.apiToken,
-    });
+    this.initReplicateApi();
   }
 
-  async generateImage(prompt) {
+  private initReplicateApi(): void {
+    if (config.replicate.apiToken !== undefined) {
+      this.replicate = new Replicate({
+        auth: config.replicate.apiToken,
+      });
+    } else {
+      throw new Error("Replicate API token is undefined");
+    }
+  }
+
+  public async generateImage(prompt: string): Promise<string | object> {
     try {
       const output = await this.replicate.run(
         "stability-ai/sdxl:2b017d9b67edd2ee1401238df49d75da53c523f36e363881e057f5dc3ed3c5b2",
@@ -20,12 +30,12 @@ class ReplicateService {
       );
       return output;
     } catch (error) {
-      console.log(error);
-      return new Error(error.message) + " failed to generate image";
+      if (error instanceof Error) return new Error(error.message);
+      return String(error);
     }
   }
 
-  async generateVideo(prompt) {
+  async generateVideo(prompt: string): Promise<string | object> {
     try {
       const output = await this.replicate.run(
         "anotherjesse/zeroscope-v2-xl:9f747673945c62801b13b84701c783929c0ee784e4748ec062204894dda1a351",
@@ -37,8 +47,8 @@ class ReplicateService {
       );
       return output;
     } catch (error) {
-      console.log(error);
-      return new Error(error.message) + " failed to generate video";
+      if (error instanceof Error) return new Error(error.message);
+      return String(error);
     }
   }
 }
