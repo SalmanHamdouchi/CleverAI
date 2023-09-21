@@ -5,11 +5,13 @@ import { CorsOptions } from "cors";
 dotenv.config();
 
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
+const OPENAI_MAX_TOKENS = process.env.OPENAI_MAX_TOKENS;
 const REPLICATE_API_TOKEN = process.env.REPLICATE_API_TOKEN;
 
 const config: Config = {
   openai: {
     apiKey: OPENAI_API_KEY,
+    maxTokens: OPENAI_MAX_TOKENS,
   },
   replicate: {
     apiToken: REPLICATE_API_TOKEN,
