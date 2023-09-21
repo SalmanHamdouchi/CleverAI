@@ -4,8 +4,8 @@ import { CorsOptions } from "cors";
 
 dotenv.config();
 
-const OPENAI_API_KEY: string | undefined = process.env.OPENAI_API_KEY;
-const REPLICATE_API_TOKEN: string | undefined = process.env.REPLICATE_API_TOKEN;
+const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
+const REPLICATE_API_TOKEN = process.env.REPLICATE_API_TOKEN;
 
 const config: Config = {
   openai: {
