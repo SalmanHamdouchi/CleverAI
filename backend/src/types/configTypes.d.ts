@@ -1,5 +1,6 @@
 interface OpenaiConfig {
   apiKey: string | undefined;
+  maxTokens: string | undefined;
 }
 
 interface ReplicateConfig {
