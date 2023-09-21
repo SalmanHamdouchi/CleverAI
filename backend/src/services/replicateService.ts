@@ -3,15 +3,17 @@ import Replicate from "replicate";
 
 class ReplicateService {
   private replicate!: Replicate;
+  private apiKey: string | undefined;
 
   constructor() {
+    this.apiKey = config.replicate.apiToken;
     this.initReplicateApi();
   }
 
   private initReplicateApi(): void {
-    if (config.replicate.apiToken !== undefined) {
+    if (this.apiKey !== undefined) {
       this.replicate = new Replicate({
-        auth: config.replicate.apiToken,
+        auth: this.apiKey,
       });
     } else {
       throw new Error("Replicate API token is undefined");

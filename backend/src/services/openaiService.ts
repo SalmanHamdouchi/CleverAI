@@ -3,21 +3,26 @@ import { ChatCompletionRequestMessage, Configuration, OpenAIApi } from "openai";
 
 class OpenaiService {
   private openAiApi!: OpenAIApi;
-  private modelVersion = "gpt-3.5-turbo";
+  private modelVersion: string;
+  private apiKey: string | undefined;
+  private maxTokens: number;
 
   constructor() {
+    this.apiKey = config.openai.apiKey;
+    this.modelVersion = "gpt-3.5-turbo";
+    this.maxTokens = Number(config.openai.maxTokens) || 100;
     this.initOpenApi();
   }
 
   private initOpenApi(): void {
     const configuration = new Configuration({
-      apiKey: config.openai.apiKey,
+      apiKey: this.apiKey,
     });
 
-    if (config.openai.apiKey !== undefined) {
+    if (this.apiKey !== undefined) {
       this.openAiApi = new OpenAIApi(configuration);
     } else {
-      throw new Error("Replicate API token is undefined");
+      throw new Error("OopenAI API token is undefined");
     }
   }
 
@@ -34,7 +39,7 @@ class OpenaiService {
       const response = await this.openAiApi.createChatCompletion({
         model: this.modelVersion,
         messages: conversation,
-        max_tokens: 5,
+        max_tokens: this.maxTokens,
       });
       return response.data.choices[0].message?.content;
     } catch (error) {
