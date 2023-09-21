@@ -8,7 +8,7 @@ class ReplicateService {
     this.initReplicateApi();
   }
 
-  initReplicateApi = (): void => {
+  private initReplicateApi(): void {
     if (config.replicate.apiToken !== undefined) {
       this.replicate = new Replicate({
         auth: config.replicate.apiToken,
@@ -16,9 +16,9 @@ class ReplicateService {
     } else {
       throw new Error("Replicate API token is undefined");
     }
-  };
+  }
 
-  async generateImage(prompt: string): Promise<string | object> {
+  public async generateImage(prompt: string): Promise<string | object> {
     try {
       const output = await this.replicate.run(
         "stability-ai/sdxl:2b017d9b67edd2ee1401238df49d75da53c523f36e363881e057f5dc3ed3c5b2",
@@ -30,7 +30,7 @@ class ReplicateService {
       );
       return output;
     } catch (error) {
-      if (error instanceof Error) throw new Error(error.message);
+      if (error instanceof Error) return new Error(error.message);
       return String(error);
     }
   }
@@ -47,7 +47,7 @@ class ReplicateService {
       );
       return output;
     } catch (error) {
-      if (error instanceof Error) throw new Error(error.message);
+      if (error instanceof Error) return new Error(error.message);
       return String(error);
     }
   }
