@@ -40,7 +40,7 @@ export default class BackendService {
   generateImage = (prompt) => {
     return new Promise((resolve, reject) => {
       axios
-        .post(`${this.BASE_URL}/generate-image-replicate`, { prompt })
+        .post(`${this.BASE_URL}/generate-image`, { prompt })
         .then((response) => {
           console.log(response);
           resolve(response.data.generatedImage);
