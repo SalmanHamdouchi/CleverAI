@@ -35,7 +35,11 @@ Clever AI Platform is designed to simplify and streamline AI content generation 
 - **Styling:** Tailwind CSS
 - **State Management:** Redux Toolkit
 - **HTTP Requests:** Axios
+- **Backend Language:** TypeScript
 - **Backend Framework:** Node.js with Express.js
+- **Containerization:** Docker
+- **Cloud hosting:** Microsoft Azure
+- **Testing Framework:** Jest
 
 ## Getting Started
 
