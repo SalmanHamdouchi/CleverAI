@@ -1,12 +1,13 @@
-import config from "../config.js";
+import { apiConfig } from "../config.js";
 import Replicate from "replicate";
+import fetch from "cross-fetch";
 
 class ReplicateService {
   private replicate!: Replicate;
   private apiKey: string | undefined;
 
   constructor() {
-    this.apiKey = config.replicate.apiToken;
+    this.apiKey = apiConfig.replicate.apiToken;
     this.initReplicateApi();
   }
 
@@ -14,6 +15,7 @@ class ReplicateService {
     if (this.apiKey !== undefined) {
       this.replicate = new Replicate({
         auth: this.apiKey,
+        fetch: fetch,
       });
     } else {
       throw new Error("Replicate API token is undefined");

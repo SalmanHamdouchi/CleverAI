@@ -1,4 +1,4 @@
-import config from "../config.js";
+import { apiConfig } from "../config.js";
 import { ChatCompletionRequestMessage, Configuration, OpenAIApi } from "openai";
 
 class OpenaiService {
@@ -8,9 +8,9 @@ class OpenaiService {
   private maxTokens: number;
 
   constructor() {
-    this.apiKey = config.openai.apiKey;
+    this.apiKey = apiConfig.openai.apiKey;
     this.modelVersion = "gpt-3.5-turbo";
-    this.maxTokens = Number(config.openai.maxTokens) || 100;
+    this.maxTokens = Number(apiConfig.openai.maxTokens) || 100;
     this.initOpenApi();
   }
 
