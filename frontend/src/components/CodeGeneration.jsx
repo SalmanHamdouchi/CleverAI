@@ -18,6 +18,7 @@ const CodeGeneration = () => {
   let dispatch = useDispatch();
   let messages = useSelector(selectAllMessages);
   let isLoading = useSelector(selectLoading);
+
   const [formData, setFormData] = useState({
     prompt: "",
   });
@@ -30,21 +31,19 @@ const CodeGeneration = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (!formData.prompt || !formData.prompt.trim()) {
       toast.error("Please fill in the prompt!");
       return;
     }
-
-    dispatch(generateCodeThunk(formData.prompt)).then((data) => {
-      console.log(data);
-      if (!data.error) {
-        dispatch(addMessage(formData.prompt));
-      } else {
-        toast.error("Something went wrong, please try again!");
+    dispatch(generateCodeThunk(formData.prompt)).then((result) => {
+      if (result.error) {
+        toast.error(result.payload);
+        return;
       }
+      dispatch(addMessage(formData.prompt));
     });
   };
 
@@ -84,37 +83,38 @@ const CodeGeneration = () => {
             <Loader />
           </div>
         )}
-        {messages.length === 0 && !isLoading && (
+        {messages && messages.length === 0 && !isLoading && (
           <Empty label="No code generated!" />
         )}
         <div className="flex flex-col-reverse gap-y-4">
-          {messages.map((message, index) => (
-            <div
-              key={index}
-              className={`py-6 px-8 w-full flex gap-x-8 border rounded-lg items-center border-black/10 ${
-                message.role === "user" ? "bg-white" : "bg-[#EFF3F8]"
-              }`}>
-              {message.role === "user" ? (
-                <Avatar imageURL="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50" />
-              ) : (
-                <Avatar imageURL="/logo.png" />
-              )}
-              <ReactMarkdown
-                components={{
-                  pre: ({ node, ...props }) => (
-                    <div className="font-mono overflow-auto w-full my-2 bg-black/10 p-2 rounded-lg">
-                      <pre {...props} />
-                    </div>
-                  ),
-                  code: ({ node, ...props }) => (
-                    <code className="bg-black/10 rounded-lg p-1" {...props} />
-                  ),
-                }}
-                className="text-md overflow-hidden leading-7 ">
-                {message.content}
-              </ReactMarkdown>
-            </div>
-          ))}
+          {messages &&
+            messages.map((message, index) => (
+              <div
+                key={index}
+                className={`py-6 px-8 w-full flex gap-x-8 border rounded-lg items-center border-black/10 ${
+                  message.role === "user" ? "bg-white" : "bg-[#EFF3F8]"
+                }`}>
+                {message.role === "user" ? (
+                  <Avatar imageURL="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50" />
+                ) : (
+                  <Avatar imageURL="/logo.png" />
+                )}
+                <ReactMarkdown
+                  components={{
+                    pre: ({ node, ...props }) => (
+                      <div className="font-mono overflow-auto w-full my-2 bg-black/10 p-2 rounded-lg">
+                        <pre {...props} />
+                      </div>
+                    ),
+                    code: ({ node, ...props }) => (
+                      <code className="bg-black/10 rounded-lg p-1" {...props} />
+                    ),
+                  }}
+                  className="text-md overflow-hidden leading-7 ">
+                  {message.content}
+                </ReactMarkdown>
+              </div>
+            ))}
         </div>
       </div>
     </div>

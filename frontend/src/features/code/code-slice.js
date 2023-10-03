@@ -11,8 +11,16 @@ let backendService = new BackendService();
 
 export const generateCodeThunk = createAsyncThunk(
   "code/generateCode",
-  (prompt) => {
-    return backendService.generateCode(prompt);
+  async (prompt, thunkAPI) => {
+    try {
+      let response = await backendService.generateCode(prompt);
+      return response;
+    } catch (error) {
+      console.log(error);
+      return thunkAPI.rejectWithValue(
+        "Failed to process your request, please try again!"
+      );
+    }
   }
 );
 
@@ -38,7 +46,8 @@ const codeSlice = createSlice({
       })
       .addCase(generateCodeThunk.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.error.message;
+        console.log(action);
+        state.error = action.payload;
       });
   },
 });
@@ -48,9 +57,9 @@ export let {
   generateTextStart,
   generateTextSuccess,
   generateTextFailure,
+  addMessage,
 } = codeSlice.actions;
 
 export let selectAllMessages = (state) => state.code.messages;
 export let selectLoading = (state) => state.code.loading;
-export let { addMessage } = codeSlice.actions;
 export default codeSlice.reducer;

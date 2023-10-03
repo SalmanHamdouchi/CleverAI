@@ -31,8 +31,7 @@ export default class BackendService {
         })
         .catch((error) => {
           console.log(error);
-
-          reject(new Error("BackendService: Failed to generate code.", error));
+          reject(new Error("BackendService: Failed to generate code."));
         });
     });
   };
